@@ -1,0 +1,14 @@
+{
+  "name": "vue-spa-docker",
+  "version": "1.0.0",
+  "scripts": {
+    "serve": "vite --host 0.0.0.0"
+  },
+  "dependencies": {
+    "vue": "^3.2.26"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.3",
+    "vite": "^2.6.14"
+  }
+}
