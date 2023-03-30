@@ -1,15 +1,16 @@
 <template>
-  <div>
-    <h1>{{ message }}</h1>
+  <div id="app">
+    <AppHeader />
+    <!-- <router-view /> -->
   </div>
 </template>
 
 <script>
+import AppHeader from './components/Header.vue';
+
 export default {
-  data() {
-    return {
-      message: 'Hello, Vue.js 3 SPA!'
-    }
-  }
-}
+  components: {
+    AppHeader,
+  },
+};
 </script>
