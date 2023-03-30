@@ -1,6 +1,6 @@
 <template>
     <header class="app-header">
-        <h1>My App</h1>
+        <h1>Kanpas</h1>
         <nav>
             <ul>
                 <li><router-link to="/">Home</router-link></li>
@@ -11,10 +11,12 @@
     </header>
 </template>
 
-<script>
-export default {
-    name: 'AppHeader'
-}
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'AppHeader',
+});
 </script>
 
 <style scoped>
