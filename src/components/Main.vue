@@ -14,7 +14,9 @@
                         height="200px"
                         cover
                     >
-                      <v-card-title class="text-white" v-text="card.title"></v-card-title>
+                      <v-card-title class="text-white">
+                        {{ card.title }}}
+                      </v-card-title>
                     </v-img>
                 </v-col>
             </v-row>
@@ -63,7 +65,7 @@ export default defineComponent({
                 {
                     id: 6,
                     title: 'Card 6',
-                    img: 'https://cdn.vuetifyjs.com/images/cards/wind.jpg',
+                    img: './src/public/takoyakiya.png',
                     flex: 4,
                 },
             ],
