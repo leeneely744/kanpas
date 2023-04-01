@@ -7,17 +7,7 @@
                     :key="card.id"
                     :cols="card.flex"
                 >
-                    <v-img
-                        :src="card.img"
-                        class="align-end"
-                        gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                        height="200px"
-                        cover
-                    >
-                      <v-card-title class="text-white">
-                        {{ card.title }}}
-                      </v-card-title>
-                    </v-img>
+                    <card :card="card" />
                 </v-col>
             </v-row>
         </v-container>
@@ -26,9 +16,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Card from './Card.vue';
 
 export default defineComponent({
     name: 'Main',
+    components: {
+        Card,
+    },
     data() {
         return {
             cards: [
