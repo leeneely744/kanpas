@@ -1,6 +1,9 @@
 <template>
     <main>
         hello
+        <div>
+            <v-btn color="primary" @click="() => $router.push('/login')">Login</v-btn>
+        </div>
     </main>
 </template>
 
