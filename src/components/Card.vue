@@ -6,9 +6,13 @@
         height="200px"
         cover
     >
-      <v-card-title class="text-white">
-        {{ card.title }}
-      </v-card-title>
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" :content="card.title">
+        <meta name="twitter:description" :content="cardDescription">
+        <meta name="twitter:image" :content="card.img">
+        <v-card-title class="text-white">
+            {{ card.title }}
+        </v-card-title>
     </v-img>
 </template>
 
@@ -19,6 +23,7 @@ interface Card {
     id: number;
     title: string;
     img: string;
+    description?: string;
     flex?: number; // use in parent component's v-col
 }
 
@@ -29,6 +34,11 @@ export default defineComponent({
             type: Object as PropType<Card>,
             required: true,
             default: () => ({ flex: 6}),
+        },
+    },
+    computed: {
+        cardDescription() {
+            return this.card.description || "";
         },
     },
 });
