@@ -14,3 +14,13 @@ export default defineComponent({
     name: 'Main',
 });
 </script>
+
+<style lang="less" scoped>
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+</style>
