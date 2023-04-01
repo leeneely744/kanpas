@@ -57,7 +57,7 @@ export default defineComponent({
                 {
                     id: 5,
                     title: 'Card 5',
-                    img: 'https://cdn.vuetifyjs.com/images/cards/water.jpg',
+                    img: './src/public/hat.png',
                     flex: 4,
                 },
                 {
