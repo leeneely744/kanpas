@@ -7,7 +7,7 @@
                     :key="card.id"
                     :cols="card.flex"
                 >
-                    <card :card="card" />
+                    <card @click="getCardDescription" :card="card" />
                 </v-col>
             </v-row>
         </v-container>
@@ -17,6 +17,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Card from './Card.vue';
+import axios from 'axios';
 
 export default defineComponent({
     name: 'Main',
@@ -65,6 +66,34 @@ export default defineComponent({
             ],
         };
     },
+    methods: {
+        async getCardDescription() {
+            const options = {
+                method: 'POST',
+                headers: { 
+                    'Authorization': 'hmac OPA-Auth:a_KYfXtOOaP3_LyLz:qv9QCLMKBkoVZiPEMKKDfjJ+rnwjjCHRjDMg04PLrW8=:0ddb2b:1680708596:goFh3PqK8qgMqOj5Dv3cOQ==',
+                    'X-ASSUME-MERCHANT': 630700163929776128,
+                    'Content-Type': 'application/json',
+                },
+                url: `/v2/payments`,
+                body: {
+                    "amount":1000,
+                    "merchantPaymentId":"DEVELOPER-PANEL-DEMO-03cfa30b-0b53-42bd-8882-db0252066eb8",
+                    "requestedAt":1680708596,
+                    "userAuthorizationId":"ee4b636d-7e44-4281-8575-2e2255b37aa3",
+                    "orderDescription":""
+                },
+                json: true
+            };
+            await axios(options)
+                .then((response) => {
+                    console.log(response);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+    }
 });
 </script>
 
