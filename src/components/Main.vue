@@ -1,5 +1,6 @@
 <template>
     <main>
+        <detail-dialog :isDialogOpen="isDialogOpen" @update:isDialogOpen="updateIsDialogOpen" />
         <v-container>
             <v-row dense>
                 <v-col
@@ -17,15 +18,19 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Card from './Card.vue';
+import DetailDialog from './Dialog.vue';
 import axios from 'axios';
 
 export default defineComponent({
     name: 'Main',
     components: {
         Card,
+        DetailDialog,
     },
     data() {
         return {
+            isDialogOpen: false,
+            acceptOrDecline: false,
             cards: [
                 {
                     id: 1,
@@ -68,6 +73,7 @@ export default defineComponent({
     },
     methods: {
         async getCardDescription() {
+            this.isDialogOpen = true;
             const options = {
                 method: 'POST',
                 headers: { 
@@ -92,6 +98,10 @@ export default defineComponent({
                 .catch((error) => {
                     console.log(error);
                 });
+        },
+        updateIsDialogOpen(acceptOrDecline: boolean) {
+            this.isDialogOpen = false;
+            this.acceptOrDecline = acceptOrDecline;
         },
     }
 });
