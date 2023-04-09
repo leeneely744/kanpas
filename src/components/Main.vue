@@ -18,7 +18,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Card from './Card.vue';
-import DetailDialog from './Dialog.vue';
+import DetailDialog from './DetailDialog.vue';
 import axios from 'axios';
 
 export default defineComponent({
