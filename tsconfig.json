@@ -9,7 +9,7 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "lib": ["esnext", "dom"],
-    "types": ["vite/client"],
+    "types": ["vite/client", "jest"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
