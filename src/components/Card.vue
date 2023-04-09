@@ -18,14 +18,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-
-interface Card {
-    id: number;
-    title: string;
-    img: string;
-    description?: string;
-    flex?: number; // use in parent component's v-col
-}
+import { Card } from '@/types/Card';
 
 export default defineComponent({
     name: 'Card',
