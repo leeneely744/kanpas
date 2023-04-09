@@ -1,6 +1,10 @@
 <template>
     <main>
-        <detail-dialog :isDialogOpen="isDialogOpen" @update:isDialogOpen="updateIsDialogOpen" />
+        <detail-dialog
+            :isDialogOpen="isDialogOpen"
+            @update:isDialogOpen="updateIsDialogOpen"
+            :card="selectedCard"
+        />
         <v-container>
             <v-row dense>
                 <v-col
@@ -8,7 +12,7 @@
                     :key="card.id"
                     :cols="card.flex"
                 >
-                    <card @click="getCardDescription" :card="card" />
+                    <card @click="getCardDescription(card)" :card="card" />
                 </v-col>
             </v-row>
         </v-container>
@@ -20,6 +24,7 @@ import { defineComponent } from 'vue';
 import Card from './Card.vue';
 import DetailDialog from './DetailDialog.vue';
 import axios from 'axios';
+import { Card as CardInterface } from '@/types/Card';
 
 export default defineComponent({
     name: 'Main',
@@ -31,6 +36,7 @@ export default defineComponent({
         return {
             isDialogOpen: false,
             acceptOrDecline: false,
+            selectedCard: {},
             cards: [
                 {
                     id: 1,
@@ -60,6 +66,7 @@ export default defineComponent({
                     id: 5,
                     title: 'Card 5',
                     img: './src/public/hat.png',
+                    description: 'This is a my favorite hat.',
                     flex: 4,
                 },
                 {
@@ -72,7 +79,8 @@ export default defineComponent({
         };
     },
     methods: {
-        async getCardDescription() {
+        async getCardDescription(card: CardInterface) {
+            this.selectedCard = card;
             this.isDialogOpen = true;
             const options = {
                 method: 'POST',

@@ -6,9 +6,9 @@
     
     >
         <v-card>
-            <v-card-title class="headline">Use Google's location service?</v-card-title>
+            <v-card-title class="headline">{{ card.title }}</v-card-title>
             <v-card-text>
-                Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.
+                {{ card.description }}
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -20,7 +20,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
+import { Card } from '@/types/Card';
 
 export default defineComponent({
     name: 'DetailDialog',
@@ -29,6 +30,11 @@ export default defineComponent({
             type: Boolean,
             required: true,
             default: false,
+        },
+        card: {
+            type: Object as PropType<Card>,
+            required: true,
+            default: () => ({ flex: 6}),
         },
     },
     methods: {
